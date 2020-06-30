@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8b44454670.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script language="javascript">
+      function doSearch()
+      {
+          const tableReg = document.getElementById('datos');
+          const searchText = document.getElementById('searchTerm').value.toLowerCase();
+          let total = 0;
+
+          for (let i = 1; i < tableReg.rows.length; i++) {
+
+              if (tableReg.rows[i].classList.contains("noSearch")) {
+                  continue;
+              }
+
+              let found = false;
+              const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+              for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                  const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+                  if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                      found = true;
+                      total++;
+                  }
+              }
+              if (found) {
+                  tableReg.rows[i].style.display = '';
+              } else {
+
+                  tableReg.rows[i].style.display = 'none';
+              }
+          }
+      }
+      </script>
+
+    <title>Inventario</title>
+
+</head>
+
+<body>
+    
+    <header class="linea">    
+        
+        <div>
+
+         <h1 class="titulo">
+
+            Administración de Inventario
+
+         </h1>
+
+        </div>
+
+
+        
+    </header>
+
+        <div>
+
+            <section id="botones">
+
+                 <div class="botones-producto">
+
+                     <a href="#btn-agregar">
+
+                         <p>
+                         Agregar Producto
+                         </p>
+
+                         <p>
+                          <i class="fas fa-plus-circle "></i>
+                         </p>
+            
+                     </a>
+
+                     <a href="#btn-buscar">
+
+                         <p>
+                          Buscar Producto
+                         </p>
+
+                         <p>
+                            <i class="fas fa-search"></i>
+                         </p>
+
+                     </a>
+
+                     <a href="#btn-modificar">
+
+                        <p>Modificar Producto</p>
+
+                         <p>
+                           <i class="fas fa-cogs"></i>
+                         </p>
+           
+                     </a>
+
+                     <a href="#btn-eliminar">
+
+                        <p>Eliminar Producto</p>
+
+                        <p>
+                            <i class="fas fa-trash-alt"></i>
+                       </p>
+           
+                     </a>
+
+                 </div>
+
+
+             </section>
+
+         <section>
+
+          <div class="buspro">
+
+          <form>
+
+            Buscar Producto: <input id="searchTerm" type="text" placeholder="ID,Producto,Categoria,Descripción" onkeyup="doSearch()" />
+
+          </form>
+
+          </div>
+           
+
+            <div id="scroll">
+
+              
+
+                <table border="1" id="datos">
+                  
+                 <thead>
+                    <tr>
+                  
+                      <th>ID</th>
+                  
+                      <th>Producto</th>
+                  
+                      <th>Categoria</th>
+                  
+                      <th>Descripción</th>
+
+                      <th>Precio</th>
+
+                      <th>Cantidad</th>
+                  
+                    </tr>
+
+                  </thead>
+
+
+                  <tbody>
+
+                    <tr>
+                  
+                      <td> 32 </td>
+                  
+                      <td> Zapatos </td>
+                  
+                      <td> Prenda </td>
+                  
+                      <td> Nike </td>
+
+                      <td> 199$ </td>
+                  
+                      <td> 20 </td>
+                  
+                    </tr>
+                    <tr>
+                  
+                        <td> 24 </td>
+                    
+                        <td> Collar </td>
+                    
+                        <td> Prenda </td>
+                    
+                        <td> Vouitone </td>
+  
+                        <td> 1000$ </td>
+                    
+                        <td> 3 </td>
+                    
+                      </tr>
+                      <tr>
+                  
+                        <td> 2 </td>
+                    
+                        <td> Max Steel </td>
+                    
+                        <td> Juguete </td>
+                    
+                        <td> Mattel </td>
+  
+                        <td> 19$ </td>
+                    
+                        <td> 200 </td>
+                    
+                      </tr>
+                      <tr>
+                  
+                        <td> 60 </td>
+                    
+                        <td> Telefono </td>
+                    
+                        <td> Tecnología </td>
+                    
+                        <td> Huawei </td>
+  
+                        <td> 390$ </td>
+                    
+                        <td> 5 </td>
+                    
+                      </tr>
+                      <tr>
+                  
+                        <td> 32 </td>
+                    
+                        <td> Zapatos </td>
+                    
+                        <td> Prenda </td>
+                    
+                        <td> Nike </td>
+  
+                        <td> 199$ </td>
+                    
+                        <td> 20 </td>
+                    
+                      </tr>
+                      <tr>
+                  
+                        <td> 32 </td>
+                    
+                        <td> Zapatos </td>
+                    
+                        <td> Prenda </td>
+                    
+                        <td> Nike </td>
+  
+                        <td> 199$ </td>
+                    
+                        <td> 20 </td>
+                    
+                      </tr>
+                      <tr>
+                  
+                        <td> 32 </td>
+                    
+                        <td> Zapatos </td>
+                    
+                        <td> Prenda </td>
+                    
+                        <td> Nike </td>
+  
+                        <td> 199$ </td>
+                    
+                        <td> 20 </td>
+                    
+                      </tr>
+                      <tr>
+                  
+                        <td> 32 </td>
+                    
+                        <td> Zapatos </td>
+                    
+                        <td> Prenda </td>
+                    
+                        <td> Nike </td>
+  
+                        <td> 199$ </td>
+                    
+                        <td> 20 </td>
+                    
+                      </tr>
+                  
+                    <tr>
+                  
+                        <td> 12 </td>
+                  
+                        <td> Computadora </td>
+                    
+                        <td> Tecnología </td>
+                    
+                        <td> Dell </td>
+  
+                        <td> 699$ </td>
+                    
+                        <td> 8 </td>
+                  
+                    </tr>
+
+                  </tbody>
+                  
+                  </table>
+
+
+            </div>
+
+
+
+
+
+            
+         </section>
+
+
+         <section id="agregar">
+
+             <div class="contenedor">
+
+               <h2 class="AP">Agregar Producto</h2>
+
+                <form action="PILAS" method="post" enctype="multipart/form-data">
+                    <div class="contenedor">
+                        <div class="campos">
+
+                          <input type="text" name="nombre" placeholder="Nombre">
+                          <input type="text" name="categoria" placeholder="Categoria" >
+                          <input type="text" name="cantidad" placeholder="Cantidad" >
+                          <input type="text" name="precio" placeholder="Precio" >
+                          <input type="textarea" name="descripcion" placeholder="Descripción" >
+          
+                        </div>
+
+                        <div class="contenedor">
+
+                            <button type="submit">Send </button>
+
+                        </div>
+
+                     </div>
+
+                 </form>
+
+            </div>
+
+         </section>
+
+         <section id="agregar">
+
+
+          <div class="contenedor">
+
+            <h2 class="AP">Modificar Producto</h2>
+
+             <form action="PILAS" method="post" enctype="multipart/form-data">
+                 <div class="contenedor">
+                   
+                     <div class="campos">
+
+                       <input type="modpro" name="nombre" placeholder="ID del producto">
+                       
+                          <select type="list" name="mod">
+                            <option selected value="0"> Elige una opción </option>
+                          
+                                <option value="1">Nombre</option> 
+                                <option value="2">Categoria</option> 
+                                <option value="3">Descripción</option>                          
+                                <option value="4">Precio</option> 
+                                <option value="5">Cantidad</option> 
+                            
+                         </select>
+       
+                     </div>
+
+                     <div class="contenedor">
+
+                         <button type="submit">Send </button>
+
+                     </div>
+
+                  </div>
+
+              </form>
+
+         </div>
+
+      </section>
+
+      
+
+   
+
+        </div>
+
+
+
+    <footer class="linea">
+      
+
+    
+
+     </footer>
+
+</body>
+
+</html>
